@@ -8,8 +8,7 @@
             "type": "java",
             "name": "MicroserviceB",
             "request": "launch",
-            "mainClass": "com.example.demo.MicroserviceB",
-            "projectName": ""
+            "mainClass": "com.example.demo.MicroserviceB"
         }
     ]
 }
