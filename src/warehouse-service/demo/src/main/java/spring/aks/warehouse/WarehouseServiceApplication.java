@@ -1,13 +1,13 @@
-package com.example.demo;
+package spring.aks.warehouse;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MicroserviceB {
+public class WarehouseServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MicroserviceB.class, args);
+		SpringApplication.run(WarehouseServiceApplication.class, args);
 	}
 
 }

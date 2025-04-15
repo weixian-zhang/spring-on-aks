@@ -8,11 +8,11 @@
 		<version>3.4.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>service-b</artifactId>
+	<groupId>spring.aks</groupId>
+	<artifactId>order-service</artifactId>
 	<version>0.0.1</version>
-	<name>service-b</name>
-	<description>Demo project for Spring Boot</description>
+	<name>order-service</name>
+	<description>Order Microservice</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -28,6 +28,7 @@
 	</scm>
 	<properties>
 		<java.version>17</java.version>
+		 <start-class>spring.aks.OrderServiceApplication</start-class>
 	</properties>
 	<dependencies>
 		<dependency>

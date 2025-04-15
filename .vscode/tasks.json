@@ -2,13 +2,13 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "run service b",
+			"label": "run order service",
 			"type": "shell",
 			"command": "mvn spring-boot:run -Dspring-boot.run.jvmArguments=\"agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=8000\"",
 			"group": "build",
 			"options": {
-				"cwd": "${workspaceFolder}/src/service-b/demo"
-			},
+				"cwd": "${workspaceFolder}/src/order-service/demo"
+			}
 		}
 	]
 }
