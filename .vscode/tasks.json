@@ -17,7 +17,8 @@
 			"problemMatcher": [],
 			"options": {
 				"cwd": "${workspaceFolder}/src/order-service/demo"
-			}
+			},
+			"dependsOn": "docker build order"
 		},
 		{
 			"label": "docker build order",
@@ -35,7 +36,8 @@
 			"problemMatcher": [],
 			"options": {
 				"cwd": "${workspaceFolder}/src/service-discovery"
-			}
+			},
+			"dependsOn": "docker build eureka server"
 		},
 		{
 			"label": "docker build eureka server",
@@ -44,6 +46,26 @@
 			"problemMatcher": [],
 			"options": {
 				"cwd": "${workspaceFolder}/src/service-discovery"
+			}
+		},
+		{
+			"label": "docker push warehouse",
+			"type": "shell",
+			"command": "docker push acraksapps1.azurecr.io/spring/warehouse-service:v0.0.1",
+			"problemMatcher": [],
+			"options": {
+				"cwd": "${workspaceFolder}/src/warehouse-service/demo"
+			},
+			"dependsOn": "docker build warehouse"
+		},
+		{
+			"label": "docker build warehouse",
+			"type": "shell",
+			"command": "docker build -t acraksapps1.azurecr.io/spring/warehouse-service:v0.0.1 .",
+			"problemMatcher": [],
+			"options": {
+
+				"cwd": "${workspaceFolder}/src/warehouse-service/demo"
 			}
 		}
 	]
