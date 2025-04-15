@@ -1,0 +1,20 @@
+
+server:
+    port: 8080
+
+spring:
+  application:
+    name: order-service
+
+# EUREKA_HOST and EUREKA_PORT from environment variables
+app:
+  config:
+    eurekaHost: ${EUREKA_HOST}
+    eurekaPort: ${EUREKA_PORT}
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${EUREKA_HOST}:${EUREKA_PORT}/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
