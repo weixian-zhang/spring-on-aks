@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: service-discovery
+  namespace: spring-on-aks
+data:
+  EUREKA_SERVER_PORT: "8761"
+  EUREKA_INSTANCE_HOSTNAME: "eureka-server"
+  EUREKA_CLIENT_REGISTER_WITH_EUREKA: "false"
+  EUREKA_CLIENT_FETCH_REGISTRY: "false"
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-discovery
+  namespace: spring-on-aks
+  labels:
+    app: service-discovery
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service-discovery
+  template:
+    metadata:
+      labels:
+        app: service-discovery
+    spec:
+      containers:
+      - name: service-discovery
+        image: acraksapps1.azurecr.io/spring/eurekaserver:v1.0.0
+        ports:
+        - containerPort: 8761
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+        envFrom:
+        - configMapRef:
+            name: eureka-server-config

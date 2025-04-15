@@ -18,7 +18,7 @@
 			"options": {
 				"cwd": "${workspaceFolder}/src/order-service/demo"
 			}
-		}
+		},
 		{
 			"label": "docker build order",
 			"type": "shell",
@@ -26,6 +26,24 @@
 			"problemMatcher": [],
 			"options": {
 				"cwd": "${workspaceFolder}/src/order-service/demo"
+			}
+		},
+		{
+			"label": "docker push eureka server",
+			"type": "shell",
+			"command": "docker push acraksapps1.azurecr.io/spring/eurekaserver:v1.0.0",
+			"problemMatcher": [],
+			"options": {
+				"cwd": "${workspaceFolder}/src/service-discovery"
+			}
+		},
+		{
+			"label": "docker build eureka server",
+			"type": "shell",
+			"command": "docker build -t acraksapps1.azurecr.io/spring/eurekaserver:v1.0.0 .",
+			"problemMatcher": [],
+			"options": {
+				"cwd": "${workspaceFolder}/src/service-discovery"
 			}
 		}
 	]
