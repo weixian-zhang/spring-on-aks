@@ -6,58 +6,34 @@
     "configurations": [
         {
             "type": "java",
-            "name": "EurekaServerApplication",
+            "name": "debug Eureka Server",
             "request": "launch",
             "mainClass": "spring.aks.service_discovery.EurekaServerApplication",
             "projectName": "service-discovery"
         },
         {
             "type": "java",
-            "name": "WarehouseServiceApplication",
+            "name": "debug Warehouse",
             "request": "launch",
             "mainClass": "spring.aks.warehouse.WarehouseServiceApplication",
-            "projectName": "warehouse-service"
+            "projectName": "warehouse-service",
+            
         },
         {
             "type": "java",
-            "name": "DemoApplication",
-            "request": "launch",
-            "mainClass": "com.example.demo.DemoApplication",
-            "projectName": ""
-        },
-        {
-            "type": "java",
-            "name": "WarehouseServiceApplication",
-            "request": "launch",
-            "mainClass": "spring.aks.WarehouseServiceApplication",
-            "projectName": ""
-        },
-        {
-            "type": "java",
-            "name": "WarehouseApplication",
-            "request": "launch",
-            "mainClass": "spring.aks.WarehouseApplication",
-            "projectName": ""
-        },
-        {
-            "type": "java",
-            "name": "WarehouseApplication",
-            "request": "launch",
-            "mainClass": "spring.aks.warehouse.WarehouseApplication",
-            "projectName": ""
-        },
-        {
-            "type": "java",
-            "name": "WarehouseApplication",
-            "request": "launch",
-            "mainClass": "spring.aks.warehouse.warehouse.WarehouseApplication",
-            "projectName": ""
-        },
-        {
-            "type": "java",
-            "name": "order service",
+            "name": "debug order",
             "request": "launch",
             "mainClass": "spring.aks.OrderServiceApplication"
+        },
+    ],
+    "compounds": [
+        {
+            "name": "debug all",
+            "configurations": [
+                "debug Eureka Server",
+                "debug Warehouse",
+                "debug order"
+            ]
         }
     ]
 }
