@@ -9,6 +9,24 @@
 			"options": {
 				"cwd": "${workspaceFolder}/src/order-service/demo"
 			}
+		},
+		{
+			"label": "docker push order",
+			"type": "shell",
+			"command": "docker push acraksapps1.azurecr.io/spring/order:v0.0.1",
+			"problemMatcher": [],
+			"options": {
+				"cwd": "${workspaceFolder}/src/order-service/demo"
+			}
+		}
+		{
+			"label": "docker build order",
+			"type": "shell",
+			"command": "docker build -t acraksapps1.azurecr.io/spring/order:v0.0.1 .",
+			"problemMatcher": [],
+			"options": {
+				"cwd": "${workspaceFolder}/src/order-service/demo"
+			}
 		}
 	]
 }

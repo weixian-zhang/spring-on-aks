@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 
 import com.netflix.appinfo.InstanceInfo;
@@ -47,17 +48,25 @@ public class OrderController {
 	@GetMapping("/order/warehouse")
 	public String order() {
 
-		Application application = eurekaClient.getApplication("warehouse-service");
-        InstanceInfo instanceInfo = application.getInstances().get(0);
-        String hostname = instanceInfo.getHostName();
-        int port = instanceInfo.getPort();
-		
-
-		RestTemplate restTemplate = new RestTemplate();
-        String warehouseServiceUrl = "http://" + hostname + ":" + port + "/warehouse";
-        ResponseEntity<String> response = restTemplate.getForEntity(warehouseServiceUrl, String.class);
- 
-        return response.getBody();
+		try {
+			Application application = eurekaClient.getApplication("warehouse-service");
+			InstanceInfo instanceInfo = application.getInstances().get(0);
+			String hostname = instanceInfo.getHostName();
+			int port = instanceInfo.getPort();
+			
+	
+			RestTemplate restTemplate = new RestTemplate();
+			String warehouseServiceUrl = "http://" + hostname + ":" + port + "/warehouse";
+			ResponseEntity<String> response = restTemplate.getForEntity(warehouseServiceUrl, String.class);
+	 
+			return response.getBody();
+		} catch (HttpStatusCodeException e) {
+			return "Error calling warehouse service: " + e.getStatusCode() + " - " + e.getResponseBodyAsString();
+		}
+		catch (Exception e) {
+			return "Error calling warehouse service: " + e.getMessage();
+		}
+	
     }
  
 }
