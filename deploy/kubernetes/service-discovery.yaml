@@ -30,6 +30,7 @@ spec:
     spec:
       containers:
       - name: service-discovery
+        imagePullPolicy: Always
         image: acraksapps1.azurecr.io/spring/eurekaserver:v1.0.0
         ports:
         - containerPort: 8761

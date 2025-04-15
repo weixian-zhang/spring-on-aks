@@ -33,6 +33,7 @@ spec:
     spec:
       containers:
       - name: warehouse-service
+        imagePullPolicy: Always
         image: acraksapps1.azurecr.io/spring/warehouse-service:v0.0.1
         resources:
           limits:
