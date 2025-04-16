@@ -25,7 +25,7 @@ public class GatewayConfig {
                         .uri(String.format("http://%s:%s", appConfig.getOrderServiceHostname(), appConfig.getOrderServicePort())))
 
                 .route(r -> r.path("/warehouse")
-                .uri(String.format("http://%s:%s", appConfig.getWarehouseServiceHostname(), appConfig.getOrderServicePort())))
+                .uri(String.format("http://%s:%s", appConfig.getWarehouseServiceHostname(), appConfig.getWarehouseServicePort())))
                 .build();
     }
 

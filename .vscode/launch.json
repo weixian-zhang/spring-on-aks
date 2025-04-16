@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "BatchApplication",
+            "request": "launch",
+            "mainClass": "spring.aks.batch.BatchApplication",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "debug Eureka Server",
             "request": "launch",
             "mainClass": "spring.aks.service_discovery.EurekaServerApplication",
