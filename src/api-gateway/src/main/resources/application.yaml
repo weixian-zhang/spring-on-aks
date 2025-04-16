@@ -1,0 +1,14 @@
+server:
+  port: 8989
+
+spring:
+  application:
+    name: api-gateway
+
+
+app:
+  config:
+    order_service_hostname: ${ORDER_SVC_HOSTNAME:#{'localhost'}}
+    order_service_port: ${ORDER_SVC_PORT:#{'8080'}}
+    warehouse_service_hostname: ${WAREHOUSE_SVC_HOSTNAME:#{'localhost'}}
+    warehouse_service_port: ${WAREHOUSE_SVC_PORT:#{9090}}

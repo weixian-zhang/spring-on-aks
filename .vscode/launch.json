@@ -16,8 +16,7 @@
             "name": "debug Warehouse",
             "request": "launch",
             "mainClass": "spring.aks.warehouse.WarehouseServiceApplication",
-            "projectName": "warehouse-service",
-            
+            "projectName": "warehouse-service"
         },
         {
             "type": "java",
@@ -25,14 +24,22 @@
             "request": "launch",
             "mainClass": "spring.aks.OrderServiceApplication"
         },
+        {
+            "type": "java",
+            "name": "debug api gateway",
+            "request": "launch",
+            "mainClass": "spring.aks.api_gateway.ApiGatewayApplication",
+            "projectName": "api-gateway"
+        }
     ],
     "compounds": [
         {
             "name": "debug all",
             "configurations": [
-                "debug Eureka Server",
-                "debug Warehouse",
-                "debug order"
+                // "debug Eureka Server",
+                // "debug Warehouse",
+                "debug order",
+                "debug api gateway"
             ]
         }
     ]

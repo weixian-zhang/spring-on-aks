@@ -67,6 +67,27 @@
 
 				"cwd": "${workspaceFolder}/src/warehouse-service/demo"
 			}
+		},
+
+		{
+			"label": "docker push apigateway",
+			"type": "shell",
+			"command": "docker push acraksapps1.azurecr.io/spring/apigateway:v0.0.1",
+			"problemMatcher": [],
+			"options": {
+				"cwd": "${workspaceFolder}/src/api-gateway"
+			},
+			"dependsOn": "docker build apigateway"
+		},
+		{
+			"label": "docker build apigateway",
+			"type": "shell",
+			"command": "docker build -t acraksapps1.azurecr.io/spring/apigateway:v0.0.1 .",
+			"problemMatcher": [],
+			"options": {
+
+				"cwd": "${workspaceFolder}/src/api-gateway"
+			}
 		}
 	]
 }
